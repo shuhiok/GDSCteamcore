@@ -1,0 +1,21 @@
+<h1>Welcome！-マイページ</h1>
+
+<h3>基本情報</h3>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
+<h3>投稿履歴</h3>
+<% @user.posts.each do |t| %>
+  <%= t.user.name %>
+  <%= t.name %>
+  <%= t.url %>
+<% end %>
+
+<br>
+
+<%= link_to "post一覧に戻る", posts_path %>

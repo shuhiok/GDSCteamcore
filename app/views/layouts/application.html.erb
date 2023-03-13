@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quest</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="headers">
+        <div class="headers1">
+          <h1>C-questionare</h1>
+        </div>
+          <div id="hamburg">
+              <input id="input" type="checkbox"> 
+                <div class="line">
+                  <label id="label1" for="input">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                  </label> 
+                </div>
+            <div id="content"> 
+              <ul class="header-list">
+                <ul>
+                <li><%= link_to "アンケート一覧", posts_path %></li>
+                <% if user_signed_in? %>
+                <li><%= link_to "新規投稿へ", new_post_path %></li> 
+                <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                <li><%= link_to "新規登録", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+      </div>
+   </header>
+
+   <div class="main">
+   <main>
+      <%= yield %>
+   </main>
+   </div>
+  </body>
+</html>
+

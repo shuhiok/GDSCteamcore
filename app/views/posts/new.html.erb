@@ -1,0 +1,36 @@
+
+<h3>Welcome！-アンケート投稿</h3>
+<%= form_with(model: @post, url: posts_path, local: true) do |f| %>
+
+  <p>スペースを入力することで複数のタグを付けることができます。</p>
+  <%= f.text_field :tag_name, placeholder: "大学生 中央大学 3年生" %>
+  
+  <div class="field">
+    <%= f.label :アンケート名： %>
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :アンケートurl： %>
+    <%= f.text_field :url, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :アンケート回答期間： %>
+    <%= f.radio_button :kikan, "1か月" %>1か月 <%= f.radio_button :kikan, "2週間" %>2週間
+  </div>
+
+  <div class="field">
+    <%= f.label :アンケート回答期限： %>
+    <%= f.date_select :kigen, default: { year: 2023, month: 4, day: 1 } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :説明文章： %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", posts_path %>

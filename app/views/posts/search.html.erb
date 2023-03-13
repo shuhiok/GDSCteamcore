@@ -1,0 +1,11 @@
+<h3>タグリスト</h3>
+<% @tag_list.each do |list| %>
+  <%= list.tag_name %>
+  <%= "(#{list.posts.count})" %>
+<% end %>
+<br>
+<%= "#{@tag.tag_name}" %>
+<br>
+<% @posts.each do |post| %>
+  <%= link_to post.name, post %>
+<% end %>

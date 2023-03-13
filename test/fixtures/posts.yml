@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyText
+  name: MyString
+  kikan: 2023-02-28
+  kigen: 2023-02-28
+  syuryo: 2023-02-28
+  mail: MyString
+  about: MyText
+
+two:
+  url: MyText
+  name: MyString
+  kikan: 2023-02-28
+  kigen: 2023-02-28
+  syuryo: 2023-02-28
+  mail: MyString
+  about: MyText

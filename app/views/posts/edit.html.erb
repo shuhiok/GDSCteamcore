@@ -1,0 +1,28 @@
+<%= form_for @post do |f| %>
+    <%= f.label :アンケート名 %>
+    <%= f.text_field :name, :size => 140 %> 
+    <br>
+
+    <%= f.label :アンケートURL %>
+    <%= f.text_field :url, :size => 140 %> 
+    <br>
+    
+    <%= f.label :アンケート回答期間 %>
+    <%= f.radio_button :kikan, "1か月" %>1か月 <%= f.radio_button :kikan, "2週間" %>2週間
+    <br>
+
+    <%= f.label :アンケート回答期限 %>
+    <%= f.date_select :kigen, default: { year: 2023, month: 4, day: 1 } %>
+    <br>
+
+    <%= f.label :説明文章 %>
+    <%= f.text_area :about, :size => "30x2" %>
+    <br>
+
+    <div class="field">
+      <%= f.label"タグ (スペースで区切ると複数タグ登録できます)" %>
+      <%= f.text_field :tag_name, value: @tag_list,class:"form-control"%>
+    </div>
+
+    <%= f.submit "編集する" %>
+  <% end %>

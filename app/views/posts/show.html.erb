@@ -1,0 +1,11 @@
+<h3>アンケート詳細ページ</h3>
+
+<div class="Post">
+  <p>アンケート名：<%= @post.name %></p>
+  <p>アンケートURL：<%= @post.url %></p>
+  <p>回答締切：<%= @post.kigen %></p>
+  <p>詳細：<%= @post.about %></p>
+</div>
+
+<%= link_to "編集する", edit_post_path(@post.id) %>
+<%= link_to "アンケート一覧ページに戻る", posts_path %>

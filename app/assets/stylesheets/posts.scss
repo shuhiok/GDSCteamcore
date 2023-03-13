@@ -1,0 +1,23 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.posts-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.post{
+    margin: 10px;
+    width: 30%;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: white;
+}
+
+.title{
+    text-align: center;
+    font-size: 20px;
+}
