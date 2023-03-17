@@ -1,3 +1,10 @@
+<div class="Post">
+  <p>アンケート名：<%= @post.name %></p>
+  <p>アンケートURL：<%= @post.url %></p>
+  <p>回答締切：<%= @post.kigen %></p>
+ 
+</div>
+
 <%= form_for @post do |f| %>
     <%= f.label :アンケート名 %>
     <%= f.text_field :name, :size => 140 %> 
