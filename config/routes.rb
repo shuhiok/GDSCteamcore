@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :posts
+  get 'posts/kanryo' => 'posts#kanryo'
+  
   root 'posts#index' 
   
   resources :tags do

@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
 
+    def kanryo
+      @posts = Post.all
+    end
+
     def index
         @posts = Post.all
         @tag_list = Tag.all  
