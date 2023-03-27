@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
-
+    
     def kanryo
-      @posts = Post.all
+       @posts = Post.all
     end
 
     def index
@@ -26,12 +26,13 @@ class PostsController < ApplicationController
     end
 
     def create
-      @post = current_user.posts.new(post_params)           
+      @post = current_user.posts.new(post_params) 
+      @post.user_id = current_user.id          
       tag_list = params[:post][:tag_name].split(nil) 
 
       if @post.save
          @post.save_tag(tag_list)                                                           
-         redirect_to posts_path      
+         redirect_to kanryo_posts_path      
       else
          redirect_to new_post_path         
       end
@@ -67,6 +68,6 @@ class PostsController < ApplicationController
     
       private
       def post_params
-        params.require(:post).permit(:url, :name, :kikan, :kigen, :syuryo, :mail, :about)
+        params.require(post).permit(:url, :name, :kikan, :kigen, :syuryo, :mail, :about)
       end
 end

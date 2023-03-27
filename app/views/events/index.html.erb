@@ -1,0 +1,35 @@
+<div class="title1">
+  <h3>Welcome！-イベント一覧</h3>
+  <%= link_to "イベント投稿", new_event_path %>
+</div>
+
+<div class="title2">
+  <p>Current Topics</p>
+</div>
+
+<div class ="events-container">
+  <% @events.each do |t| %>
+    <div class="event">
+      <%= t.name %>
+      <%= t.community %>
+      <%= t.day %>
+      
+
+      <% if user_signed_in? %>
+      <% if current_user.already_liked?(t) %>
+          <%= link_to event_like_path(id: t.id, event_id: t.id), method: :delete do %>
+            <i class="fas fa-heart" style="color:white;"></i><%= t.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to event_likes_path(id: t.id, event_id: t.id), method: :post do %>
+            <i class="far fa-heart style="color:white;"></i><%= t.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+    <i class="far fa-heart style="color:white;"></i><%= t.likes.count %>
+  <% end %>
+  
+      <%= link_to "詳細へ", event_path(t.id) %>
+    </div>
+  <% end %>
+</div>

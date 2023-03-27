@@ -1,0 +1,51 @@
+<div class="title1">
+<h3>イベント基本情報</h3>
+</div>
+
+<div class="syosai">
+  <p><%= @event.name %></p>
+  <p><%= @event.community %></p>
+  <p><%= @event.day %></p>
+  <p><%= @event.about %></p>
+  <p><%= @event.url %></p>
+
+  <% if user_signed_in? %>
+    <% if current_user.already_liked?(@event) %>
+      <%= link_to event_like_path(@event), method: :delete do %>
+        <i class="fas fa-heart"></i><%= @event.likes.count %>
+      <% end %>
+    <% else %>
+      <%= link_to event_likes_path(@event), method: :post do %>
+        <i class="fas fa-heart"></i><%= @event.likes.count %>
+      <% end %>
+    <% end %>
+    <% else %>
+      <i class="fas fa-heart"></i><%= @event.likes.count %>
+  <% end %>
+
+
+  <div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div class="comment">
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@event, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "編集する", edit_event_path(@event.id) %>
+</div>
+
+<%= link_to "イベント掲示板に戻る", events_path %>

@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :users, only: [:show]
-  resources :posts
-  get 'posts/kanryo' => 'posts#kanryo'
+  resources :posts do
+    collection do
+      get 'kanryo', to: 'posts#kanryo'
+    end
+  end
   
-  root 'posts#index' 
+  resources :events do
+      resources :likes, only: [:create, :destroy]
+      resources :comments, only: [:create]
+  end
   
   resources :tags do
     get 'posts', to: 'posts#search'
   end
+  
+  root 'posts#index' 
+  
 end

@@ -1,0 +1,33 @@
+<h1>イベント投稿</h1>
+
+<%= form_for @event do |f| %>
+
+<div class="field">
+<%= f.label :イベント名 %>
+<%= f.text_field :name, :size => 30 %>
+</div>
+
+<div class="field">
+<%= f.label :所属コミュニティ（任意記入）%>
+<%= f.text_field :community, :size => 30 %>
+</div>
+
+<div class="field">
+<%= f.label :イベント日時 %>
+<%= f.date_select :day, default: { year: 2023, month: 4, day: 1 } %>
+</div>
+
+<div class="field">
+<%= f.label :説明文章 %>
+<%= f.text_area :about, :size => "30x2" %>
+</div>
+
+<div class="field">
+<%= f.label :イベントurl等（任意添付） %>
+<%= f.text_field :url, :size => 30 %>
+</div>
+
+<%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", events_path %>

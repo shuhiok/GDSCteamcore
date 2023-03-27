@@ -1,13 +1,15 @@
-<div class="title">
+<div class="title1">
   <h3>Welcome！-アンケート一覧</h3>
   <%= link_to "新規投稿へ", new_post_path %>
 </div>
 
+<div class="tag">
 <h3>タグリスト</h3>
 <% @tag_list.each do |list| %>
   #<%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
   <%= "(#{list.posts.count})" %>
 <% end %>
+</div>
 
 <div class="posts-container">
   <% @posts.each do |t| %>
@@ -15,7 +17,7 @@
       <%= t.kigen %>
       <br>
       <%= t.name %>
-      <%= t.user.name %>
+    
       <br>
       <%= link_to "詳細へ", post_path(t.id) %>
       <%= link_to "編集する", edit_post_path(t.id) %>

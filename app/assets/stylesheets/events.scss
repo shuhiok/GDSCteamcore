@@ -1,0 +1,39 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.title2{
+    padding: 0.5em 1em;
+    margin: 1em;
+    font-weight: bold;
+    background-color: white;
+    border: solid 3px #ffffff;
+    width: 150px;
+}
+
+.title1{
+    padding-left: 30px;
+    padding-right: 40px;
+}
+
+.event{
+    padding: 0.5em 1em;
+    margin: 2em 3em;
+    font-weight: bold;
+    color: white;
+    background: #2B3A67;
+    border: solid 3px #2B3A67;
+    
+}
+
+.syosai{
+    border: solid 2px white;
+    background-color: #ffffff;
+    padding: 0.5em 1em;
+    margin: 2em 3em;
+}
+
+.link{
+    color: #ffffff;
+    text-decoration: none;
+}

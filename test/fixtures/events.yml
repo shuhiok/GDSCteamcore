@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  community: MyString
+  day: 2023-03-26
+  about: MyText
+  url: MyText
+
+two:
+  name: MyString
+  community: MyString
+  day: 2023-03-26
+  about: MyText
+  url: MyText
